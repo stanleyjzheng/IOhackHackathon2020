@@ -9,7 +9,7 @@
        * element that contains the map. */
       #map {
         height: 100%;
-      }
+      }%;
       /* Optional: Makes the sample page fill the window. */
       html, body {
         height: 100%;
@@ -46,7 +46,18 @@
       #map #infowindow-content {
         display: inline;
       }
-
+      button {
+            background-color: white;
+            width: 75px;
+            height: 25px;
+            text-align:center;
+            font-size: 30px;
+            color: black;
+            border-radius: 8px;
+            margin-left: 430px;
+            margin-top: 6px;
+            box-shadow: -1px 1px 2px 1px grey;
+        }
     </style>
   </head>
   <body>
@@ -61,7 +72,7 @@
         <span id="place-name" class="title"></span><br>
         <strong>Place ID:</strong> <span id="place-id"></span><br>
         <span id="place-address"></span>
-    <div> <button id = "select" onclick >Click me</button>
+    <div> <button id = "select" onclick = "document.location = 'stores'">Click me</button>
     </div>
 
     <script>
@@ -157,4 +168,3 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1vYdBtA_AJ6wg68Nb7pv6eVg6BmphiO8&libraries=places&callback=initMap"
         async defer></script>
   </body>
-</html>

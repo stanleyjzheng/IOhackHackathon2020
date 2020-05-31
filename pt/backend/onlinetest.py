@@ -59,8 +59,6 @@ def similarLocations():
             userTypes.remove('intersection')
     singleUserTypes = str(userTypes[0])
 
-
-    #placeStorage = pt.get(APIKey, [singleUserTypes], (coord1, coord2), (coord3, coord4), 20, 1, False) #pt.get a list of businesses with the same user specified type and within a user specified radius from their location. 
     if userRadius > 7:
         userRadius = 7 #If the user sets a radius of more than 7, set the radius to 7 (otherwise there will be too many results.)
 
@@ -130,7 +128,7 @@ def indexSort():
 
 def nodeReturn():
     index3 = 0
-    while index3 < len(current_popularity):
+    while index3 < len(current_popularity) and index3 < 7:
         busyNumber = index3 + 1
         print(ordinal(busyNumber)) #Position (2nd least busy, 3rd least buys, etc)
         print(types[index3][0])  #Type of business, bar, grocery or supermarket, etc.
