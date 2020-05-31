@@ -208,18 +208,6 @@ def leaving_store(store, user):
     file.close()
 
 
-def randomize_queue(store):
-    import random
-    file = open(f"{store}.csv", "r")
-    queue = [tuple(line.strip().split(",")) for line in file.readlines()]
-    random.shuffle(queue)
-    file.close()
-    file = open(f"{store}.csv", "w")
-    for person in queue:
-        file.write(f"{person[0]},{person[1]}\n")
-    file.close()
-
-
 def authenticate(username, password):
     file = open("accounts.csv", "r")
     accounts = [line.strip().split(",") for line in file.readlines()]
