@@ -12,7 +12,7 @@ app.use(express.static(__dirname + '/client'));
 // });
 
 app.get('/', function(req, res) {
-	res.sendFile(__dirname + '/client/signin.html');
+	res.sendFile(__dirname + '/client/index.html');
 });
 
 app.get('/testindex', function(req, res) {
@@ -47,6 +47,22 @@ io.sockets.on('connection', function(socket){
 		});
 
 	});
+	socket.on("place_id", function(data) {
+		console.log("triggered");
+		var place_id = data.place_id;
+		var storelist = [];
+		console.log(place_id);
+		const placecalculations = spawn('python', ['offlinetest.py', place_id.toString()]);
+		placecalculations.stdout.on('data', function(data) {
+			storelist = data.toString().split("\r\n");
+			storelist = storelist.join("~");
+		});
+		placecalculations.on('close', function() {
+			console.log(storelist);
+			socket.emit("stores", {array: storelist});
+		});
+
+	})
 	
 });
 
