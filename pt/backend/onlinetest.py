@@ -3,9 +3,9 @@ import populartimes as pt
 import math
 
 userLocation = [] #Formated as [latitude, longitude]. Searches within the nearest userRadius kilometers. USER INPUT
-userRadius = int(5) #Radius user would like to search within in KM. USER INPUT
+userRadius = int() #Radius user would like to search within in KM. USER INPUT
 userTypes = []
-userPlaceID = str(sys.argv[1]) #MAKE SURE IS STRING! USER INPUT
+userPlaceID = str() #MAKE SURE IS STRING! USER INPUT
 userPlaceStorage = []
 singleUserTypes = 'placeholder'
 coord1 = 1
@@ -127,18 +127,13 @@ def indexSort():
 
 
 def nodeReturn():
-    if len(placeID) < 6:
-        print(len(current_popularity))#Know how many 4 line segments to expect
-    else:
-        print('6') #Let the JS know how many 4 line segments to expect
     index3 = 0
-    while index3 < len(current_popularity) and index3 < 6:
+    while index3 < len(current_popularity) and index3 < 7:
         busyNumber = index3 + 1
- #       print(ordinal(busyNumber)) #Position (2nd least busy, 3rd least buys, etc)
+        print(ordinal(busyNumber)) #Position (2nd least busy, 3rd least buys, etc)
         print(types[index3][0])  #Type of business, bar, grocery or supermarket, etc.
         print(name[index3]) #Name of business
         print(current_popularity[index3]) #Current popularity as a % of peak. Shows 'No data' if there is no data. 
-        print(address[index3])
         index3 += 1
 
 

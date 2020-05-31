@@ -12,7 +12,7 @@ app.use(express.static(__dirname + '/client'));
 // });
 
 app.get('/', function(req, res) {
-	res.sendFile(__dirname + '/client/index.html');
+	res.sendFile(__dirname + '/client/signin.html');
 });
 
 app.get('/testindex', function(req, res) {
@@ -34,35 +34,18 @@ io.sockets.on('connection', function(socket){
 		var isAuthenticated = false;
 		var id = 0;
 		const authenticatepy = spawn('python', ['authenticate.py', data.user.toString(), data.pass.toString()]);
+		console.log(data.user);
 		authenticatepy.stdout.on('data', function(data) {
-			if(data.toString() != "False") {
+			if(data) {
 				isAuthenticated = true;
-				id = parseInt(data.toString());
+				id = parseInt(data);
 				console.log("login true");
-				socket.emit("loggingin", {success: true, id: id});
 			} else{
 				console.log("login false")
-				socket.emit("loggingin", {success: false});
 			}
 		});
 
 	});
-	socket.on("place_id", function(data) {
-		console.log("triggered");
-		var place_id = data.place_id;
-		var storelist = [];
-		console.log(place_id);
-		const placecalculations = spawn('python', ['offlinetest.py', place_id.toString()]);
-		placecalculations.stdout.on('data', function(data) {
-			storelist = data.toString().split("\r\n");
-			storelist = storelist.join("~");
-		});
-		placecalculations.on('close', function() {
-			console.log(storelist);
-			socket.emit("stores", {array: storelist});
-		});
-
-	})
 	
 });
 
