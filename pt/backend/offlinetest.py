@@ -1,0 +1,155 @@
+import populartimes as pt
+import math
+import ast #This is one of the only ways we can open the txt into a list. 
+#WORKING OFFLINE PROTOTYPE
+userLocation = [51.043321, -114.067825] #Formated as [latitude, longitude]. Searches within the nearest userRadius kilometers. USER INPUT
+userRadius = int(5) #Radius user would like to search within in KM. USER INPUT
+userTypes = ['grocery_or_supermarket']
+userPlaceID = str(sys.argv[1]) #MAKE SURE IS STRING! USER INPUT
+coord1 = 1 
+coord2 = 1  
+coord3 = 1
+coord4 = 1
+singleUserTypes = 'placeholder'
+ordinal = lambda n: "%d%s" % (n,"tsnrhtdd"[(math.floor(n/10)%10!=1)*(n%10<4)*n%10::4])
+placeID = [] #PlaceID from placeStorage
+name = [] #Name from placeStorage
+address = [] #Address from placeStorage
+types = [] #Type of place/business from placeStorage
+international_phone_number = [] #Phone number from placeStorage
+current_popularity = [] #Current popularity as a % of peak from placeStorage
+
+with open('onlinecache.txt', 'r') as f:#Use ast to read onlinecache.txt into a list
+    placeStorage = ast.literal_eval(f.read())
+
+def similarLocations():
+    global userTypes
+    global userRadius
+    global singleUserTypes
+#    global userPlaceStorage ONLINE API SERVICE ONLY
+    global coord1
+    global coord2
+    global coord3
+    global coord4
+#    global APIKey ONLINE API SERVICE ONLY
+    global userPlaceID
+    global placeStorage
+    global userLocation
+    global placeID
+    global name
+    global address
+    global types
+    global current_popularity
+    global international_phone_number
+    '''
+    #ONLINE API SERVICE ONLY
+    userPlaceStorage = pt.get_id(APIKey, userPlaceID) 
+
+
+    #Extra types deletion. We need to remove some categories since they are too prevalent, and would result in thousands of results.
+    userTypes = userPlaceStorage['types'] 
+    for a in userTypes:
+        if a == 'point_of_interest':
+            userTypes.remove('point_of_interest')
+        if a == 'store':
+            userTypes.remove('store')
+        if a == 'establishment':
+            userTypes.remove('establishment')
+        if a == 'intersection':
+            userTypes.remove('intersection')
+    singleUserTypes = str(userTypes[0])
+
+
+    #placeStorage = pt.get(APIKey, [singleUserTypes], (coord1, coord2), (coord3, coord4), 20, 1, False) #pt.get a list of businesses with the same user specified type and within a user specified radius from their location. 
+    if userRadius > 7:
+        userRadius = 7 #If the user sets a radius of more than 7, set the radius to 7 (otherwise there will be too many results.)
+
+    userLocation = []
+    userLocation = userPlaceStorage['coordinates']
+    userLat = userLocation['lat']
+    userLong = userLocation['lng']
+    userLocation = []
+    userLocation.append(userLat)
+    userLocation.append(userLong)
+    coord1 = userLocation[0] - 0.00904371733*userRadius 
+    coord2 = userLocation[1] - 0.00904371733*userRadius #One km is 0.00904371733 degree of latitude or longitude 
+    coord3 = userLocation[0] + 0.00904371733*userRadius
+    coord4 = userLocation[1] + 0.00904371733*userRadius
+    print(singleUserTypes)
+    print(userTypes)
+    placeStorage = pt.get(APIKey, [singleUserTypes], (coord1, coord2), (coord3, coord4)) #pt.get a list of businesses with the same user specified type and within a user specified radius from their location. 
+    print(placeStorage)
+    ''' # ONLINE API SERVICE ONLY
+    index = 0
+    while index < len(placeStorage):#Runs through entire placeStorage
+        placeID.append(placeStorage[index]['id'])#Append a ton of information to respective lists
+        name.append(placeStorage[index]['name'])
+        address.append(placeStorage[index]['address'])
+        types.append(placeStorage[index]['types']) 
+        if 'current_popularity' in placeStorage[index]:#If the dictionary has current_popularity
+            current_popularity.append(placeStorage[index]['current_popularity'])#Append it to current_popularity the list.
+        else: 
+            current_popularity.append(101)#If not, make it 101.
+        if 'international_phone_number' in placeStorage[index]:
+            international_phone_number.append(placeStorage[index]['international_phone_number'])
+        else:
+            international_phone_number.append('No data')
+        index += 1#Increments the index by 1 to repeat this for the next dictionary.
+    userTypes = [x.replace('_', ' ') for x in userTypes] #Replace underscores throughout with spaces for beauty
+
+
+def indexSort():
+    global current_popularity
+    global placeID
+    global name
+    global address
+    global international_phone_number
+    global types
+    global userRadius
+
+    current_popularity, placeID, name, address, types, international_phone_number = (list(t) for t in zip(*sorted(zip(current_popularity, placeID, name, address, types, international_phone_number))))
+    
+    types = [[x.replace('_',' ') for x in l] for l in types]
+    
+    for n, i in enumerate(current_popularity):
+        if i == 101:
+            current_popularity[n] = 'No data'
+
+    for a in types:#We need to remove some categories since they are too prevalent, and would result in thousands of results.
+        if a == 'health':
+            types.remove('health')
+        if a == 'point of interest':
+            types.remove('point of interest')
+        if a == 'store':
+            types.remove('store')
+        if a == 'establishment':
+            types.remove('establishment')
+        if a == 'intersection':
+            types.remove('intersection')
+
+
+def nodeReturn():
+    if len(placeID) < 6:
+        print(len(current_popularity))#Know how many 4 line segments to expect
+    else:
+        print('6') #Let the JS know how many 4 line segments to expect
+    index3 = 0
+    while index3 < len(current_popularity) and index3 < 6:
+        busyNumber = index3 + 1
+ #       print(ordinal(busyNumber)) #Position (2nd least busy, 3rd least buys, etc)
+        print(types[index3][0])  #Type of business, bar, grocery or supermarket, etc.
+        print(name[index3]) #Name of business
+        print(current_popularity[index3]) #Current popularity as a % of peak. Shows 'No data' if there is no data. 
+        print(address[index3])
+        print(placeID[index3])
+        index3 += 1
+
+
+def main():
+    similarLocations()
+    indexSort()
+    nodeReturn()
+
+
+if __name__ == "__main__":
+    main() #execute main
