@@ -1,3 +1,6 @@
+import sys
+
+
 def add_to_valid_shoppers(store, user):
     """
     Adds a user to valid shoppers for a given store.
@@ -9,3 +12,6 @@ def add_to_valid_shoppers(store, user):
     file = open(f"{store}_valid_shoppers.csv", "a")
     file.write(f"{user}\n")
     file.close()
+
+
+print(add_to_valid_shoppers(sys.argv[1], sys.argv[2]))

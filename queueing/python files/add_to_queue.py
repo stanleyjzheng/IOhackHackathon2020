@@ -1,3 +1,6 @@
+import sys
+
+
 def add_to_queue(store, user):
     """
     Adds a user to queue and then sorts the queue for a given store.
@@ -24,3 +27,6 @@ def add_to_queue(store, user):
     for person in queue:
         file.write(f"{person[0]},{person[1]},{person[2]}\n")
     file.close()
+
+
+print(add_to_queue(sys.argv[1], sys.argv[2]))

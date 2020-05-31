@@ -1,3 +1,6 @@
+import sys
+
+
 def leaving_store(store, user):
     # remove the person from file containing current shoppers
     file = open(f"{store}_current_shoppers.csv", "r+").readlines()
@@ -33,3 +36,6 @@ def leaving_store(store, user):
     for person in queue:
         file.write(f"{person[0]},{person[1]}\n")
     file.close()
+
+
+print(leaving_store(sys.argv[1], sys.argv[2]))

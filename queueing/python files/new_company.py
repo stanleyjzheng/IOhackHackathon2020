@@ -1,3 +1,6 @@
+import sys
+
+
 def new_company():
     # retrieve the last id
     file = open("companies.csv", "r")

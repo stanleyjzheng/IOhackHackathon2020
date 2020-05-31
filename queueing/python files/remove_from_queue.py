@@ -1,3 +1,6 @@
+import sys
+
+
 def remove_from_queue(store, user):
     # remove person from queue
     file = open(f"{store}_queue.csv", "r")
@@ -7,3 +10,6 @@ def remove_from_queue(store, user):
             queue.remove(person)
             break
     file.close()
+
+
+print(remove_from_queue(sys.argv[1], sys.argv[2]))

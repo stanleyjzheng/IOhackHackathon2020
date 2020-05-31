@@ -1,3 +1,6 @@
+import sys
+
+
 def new_user():
     # retrieve the last id
     file = open("accounts.csv", "r")

@@ -1,3 +1,6 @@
+import sys
+
+
 def remove_from_current_shoppers(store, user):
     # remove person from current shoppers
     file = open(f"{store}_current_shoppers.csv", "r")
@@ -10,3 +13,6 @@ def remove_from_current_shoppers(store, user):
     for person in current_shoppers:
         file.write(f"{person}\n")
     file.close()
+
+
+print(remove_from_current_shoppers(sys.argv[1], sys.argv[2]))
