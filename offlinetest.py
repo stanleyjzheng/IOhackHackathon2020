@@ -141,6 +141,7 @@ def nodeReturn():
         print(name[index3]) #Name of business
         print(current_popularity[index3]) #Current popularity as a % of peak. Shows 'No data' if there is no data. 
         print(address[index3])
+        print(placeID[index3])
         index3 += 1
 
 
