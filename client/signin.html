@@ -37,6 +37,16 @@
             };
             socket.emit("login", data);
         }
+
+        socket.on("loggingin", function(data) {
+            if(data.success) {
+                document.cookie = data.id.toString();
+                window.location.replace("queue.html");
+            } else{
+                console.log("Wrong");
+            }
+        });
+
     </script>
 
 

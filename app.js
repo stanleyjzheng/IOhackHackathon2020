@@ -34,14 +34,15 @@ io.sockets.on('connection', function(socket){
 		var isAuthenticated = false;
 		var id = 0;
 		const authenticatepy = spawn('python', ['authenticate.py', data.user.toString(), data.pass.toString()]);
-		console.log(data.user);
 		authenticatepy.stdout.on('data', function(data) {
-			if(data) {
+			if(data.toString() != "False") {
 				isAuthenticated = true;
-				id = parseInt(data);
+				id = parseInt(data.toString());
 				console.log("login true");
+				socket.emit("loggingin", {success: true, id: id});
 			} else{
 				console.log("login false")
+				socket.emit("loggingin", {success: false});
 			}
 		});
 
