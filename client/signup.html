@@ -27,11 +27,14 @@
         <h3 class="password">Confirm password</h3>
         <input class="text_box" type="text" autofocus required>
 
-        <h3 class="password">Age</h3>
-        <input class="text_box" type="number" autofocus required>
-
         <h3 class="password">Phone number</h3>
-        <input class="text_box" type="number" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" min="10" max="10" required>
+        <input class="text_box" type="number" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="(xxx) xxx-xxxx" required>
+
+        <h3 class="password">Age</h3>
+        <input class="text_box" type="number" min="16" max="120"autofocus required>
+
+        <h3 class="password">Health conditions (if any)</h3>
+        <input class="health_conditions" type="text" autofocus>
 
         <button onclick="document.location = 'signin2.html'">Next</button>
     </div>
