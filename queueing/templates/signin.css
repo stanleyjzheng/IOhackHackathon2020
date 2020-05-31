@@ -29,18 +29,18 @@ button {
     color: black;
     border-radius: 8px;
     margin-left: 430px;
-    margin-top: 6px;
+    margin-top: -5px;
     box-shadow: -1px 1px 2px 1px grey;
 }
 h2 {
-    padding-top: 50px;
+    padding-top: 0px;
     padding-left: 70px;
     font-size: 40px
 }
 h3 {
-    padding-top: 10px;
+    padding-top: 0px;
     padding-left: 70px;
-    font-size: 30px
+    font-size: 20px
 }
 .email_box {
     margin-top: -10px;
@@ -51,6 +51,18 @@ h3 {
     font-size: 25px;
     padding-left: 10px;
     /* box-shadow: -1px 1px 2px 1px grey; */
+}
+.password{
+    font-size:20px;
+}
+.password_box{
+    margin-top: -10px;
+    margin-left: 70px;
+    width: 440px;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 25px;
+    padding-left: 10px;
 }
 p {
     padding-top: 10px;
