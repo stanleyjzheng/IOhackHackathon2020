@@ -5,39 +5,36 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <style>
-        button {
-        background-color: rgb(255, 255, 255);
-        width: 150px;
-        height: 50px;
-        text-align:middle;
-        font-size: 30px;
-        color: black;
-        border-radius: 8px;
-        margin:auto;
-        margin-bottom: 10px;
-        box-shadow: -1px 1px 2px 1px grey;
-        }
-      html, body {
+      button {
+      background-color: rgb(255, 255, 255);
+      width: 150px;
+      height: 50px;
+      text-align:middle;
+      font-size: 30px;
+      color: black;
+      border-radius: 8px;
+      margin:auto;
+      margin-bottom: 10px;
+      box-shadow: -1px 1px 2px 1px grey;
+      }
+      body {
         height: 100%;
         margin: 0;
         padding: 0;
         background-image: radial-gradient(#f9cb9cff, white);
         text-align:left;
-
-
       }
       h2 {
-            padding-top: 50px;
-            padding-left: 70px;
-            font-size: 40px;
-            font-family: Arial, Helvetica, sans-serif;
-            color:black;
-          
-        }
-        h3 {
-            font-family: Arial, Helvetica, sans-serif;
-            color:black;
-            text-align:left;
+        padding-top: 50px;
+        font-size: 40px;
+        font-family: Arial, Helvetica, sans-serif;
+        color:black;
+        text-align: center;
+      }
+      h3 {
+        font-family: Arial, Helvetica, sans-serif;
+        color:black;
+        text-align:left;
       }
       .controls {
         border-radius: 2px;
@@ -55,7 +52,6 @@
         text-overflow: ellipsis;
         width: 400px;
       }
-
       .controls:focus {
         border-color: #4d90fe;
       }
@@ -68,81 +64,82 @@
       #map #infowindow-content {
         display: inline;
       }
-    .grid-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 30px;
-  grid-row-gap: 30px;
-  margin-left: 15em;
-  margin-right: 15em;
-  margin-top: 3em;
-  font-family: Roboto;
-}
-.name{
-  margin-top:-5px;
-  margin-left:10px;
-  font-size:25px;
-  font-weight:700;
-}
-.answer_name{
-  margin-top:-50px;
-  margin-left:10px;
-  font-size:20px;
-  font-weight:lighter;
-}
-.adress{
-  margin-top:-40px;
-  margin-left:10px;
-  font-size:25px;
-  font-weight:700;
-}
-.answer_adress{
-  margin-top:-50px;
-  margin-left:10px;
-  font-size:20px;
-  font-weight:lighter;
-}
-.busy{
-  margin-top:-40px;
-  margin-left:10px;
-  font-size:25px;
-  font-weight:700;
-}
-.answer_busy{
-  margin-top:-50px;
-  margin-left:10px;
-  font-size:20px;
-  font-weight:lighter;
-}
-.number{
-  margin-top:-40px;
-  margin-left:10px;
-  font-size:25px;
-  font-weight:700;
-}
-.answer_number{
-  margin-top:-50px;
-  margin-left:10px;
-  font-size:20px;
-  font-weight:lighter;
-}
-
-.grid-number {
-  background-color: white;
-  display: grid;
-  padding: 15px;
-  font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif;
-  color:black;
-  line-height: 3;
-  box-shadow: -1px 1px 2px 1px grey;
-  border-radius:10px;
-}
+      .grid-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 30px;
+        grid-row-gap: 30px;
+        margin-left: 15em;
+        margin-right: 15em;
+        margin-top: 3em;
+        font-family: Roboto;
+      }
+      .name{
+        margin-top:-5px;
+        margin-left:10px;
+        font-size:25px;
+        font-weight:700;
+      }
+      .answer_name{
+        margin-top:-50px;
+        margin-left:10px;
+        font-size:20px;
+        font-weight:lighter;
+      }
+      .address{
+        margin-top:-40px;
+        margin-left:10px;
+        font-size:25px;
+        font-weight:700;
+      }
+      .answer_address{
+        margin-top:-50px;
+        margin-left:10px;
+        font-size:20px;
+        font-weight:lighter;
+      }
+      .busy{
+        margin-top:-40px;
+        margin-left:10px;
+        font-size:25px;
+        font-weight:700;
+      }
+      .answer_busy{
+        margin-top:-50px;
+        margin-left:10px;
+        font-size:20px;
+        font-weight:lighter;
+      }
+      .number{
+        margin-top:-40px;
+        margin-left:10px;
+        font-size:25px;
+        font-weight:700;
+      }
+      .answer_number{
+        margin-top:-50px;
+        margin-left:10px;
+        font-size:20px;
+        font-weight:lighter;
+      }
+      .grid-number {
+        background-color: white;
+        display: grid;
+        padding: 15px;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        color:black;
+        line-height: 3;
+        box-shadow: -1px 1px 2px 1px grey;
+        border-radius:10px;
+        margin-top: -50px;
+        margin-bottom: 50px;
+      }
     </style>
   </head>
   <body>
-    <h2>Here are your results:</h2>
-    <hr>
+    <h2>Here are your search results:</h2>
+    <br>
 
     <div class="grid-wrapper">
       <div class="grid-number">
