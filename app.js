@@ -33,7 +33,7 @@ io.sockets.on('connection', function(socket){
 	socket.on("login", function(data){
 		var isAuthenticated = false;
 		var id = 0;
-		const authenticatepy = spawn('python', ['\\queueing\\python_files\\authenticate.py'], data.user.toString(), data.pass.toString());
+		const authenticatepy = spawn('python', ['authenticate.py', data.user.toString(), data.pass.toString()]);
 		console.log(data.user);
 		authenticatepy.stdout.on('data', function(data) {
 			if(data) {
@@ -48,3 +48,4 @@ io.sockets.on('connection', function(socket){
 	});
 	
 });
+
