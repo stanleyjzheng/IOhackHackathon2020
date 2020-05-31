@@ -3,9 +3,9 @@ import math
 import ast #This is one of the only ways we can open the txt into a list. 
 #WORKING OFFLINE PROTOTYPE
 userLocation = [51.043321, -114.067825] #Formated as [latitude, longitude]. Searches within the nearest userRadius kilometers. USER INPUT
-userRadius = int(7) #Radius user would like to search within in KM. USER INPUT
+userRadius = int(5) #Radius user would like to search within in KM. USER INPUT
 userTypes = ['grocery_or_supermarket']
-userPlaceID = str('ChIJM94LKJdocVMRKFF10w4rKDg') #MAKE SURE IS STRING! USER INPUT
+userPlaceID = str(sys.argv[1]) #MAKE SURE IS STRING! USER INPUT
 coord1 = 1 
 coord2 = 1  
 coord3 = 1
@@ -136,11 +136,12 @@ def nodeReturn():
     index3 = 0
     while index3 < len(current_popularity) and index3 < 6:
         busyNumber = index3 + 1
-        print(ordinal(busyNumber)) #Position (2nd least busy, 3rd least buys, etc)
+ #       print(ordinal(busyNumber)) #Position (2nd least busy, 3rd least buys, etc)
         print(types[index3][0])  #Type of business, bar, grocery or supermarket, etc.
         print(name[index3]) #Name of business
         print(current_popularity[index3]) #Current popularity as a % of peak. Shows 'No data' if there is no data. 
         print(address[index3])
+        print(placeID[index3])
         index3 += 1
 
 
