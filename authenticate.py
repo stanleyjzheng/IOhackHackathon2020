@@ -8,7 +8,7 @@ def authenticate(username, password):
     for account in accounts:
         if account[3] == str(username) and account[4] == str(password):
             return account[0]
-    return "False"
+    return False
 
 
-print(authenticate(sys.argv[1], sys.argv[2]), end="")
+print(authenticate(sys.argv[1], sys.argv[2]))
