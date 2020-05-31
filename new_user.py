@@ -1,7 +1,7 @@
 import sys
 
 
-def new_user():
+def new_user(first_name, last_name, email, password, phone_number, age, health_conditions):
     # retrieve the last id
     file = open("accounts.csv", "r")
     data = file.readlines()
@@ -15,10 +15,8 @@ def new_user():
 
     # create new user
     file = open("accounts.csv", "a")
-    first_name = input("First Name: ")
-    last_name = input("Last Name: ")
-    email = input("Email: ")
-    password = input("Password: ")
-    phone_number = input("Phone Number: ")
-    file.write(f"{user_id},{first_name},{last_name},{email},{password},{phone_number}\n")
+    file.write(f"{user_id},{first_name},{last_name},{email},{password},{phone_number},{age},{health_conditions}\n")
     file.close()
+
+
+print(new_user(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6], sys.argv[7]))
