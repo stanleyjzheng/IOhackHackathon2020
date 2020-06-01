@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PopQ! - Create new account</title>
+    <link rel="stylesheet" href="business_signup.css">
+</head>
+
+<body>
+    <div>
+        <h2>Create new account</h2>
+
+        <h3>Business name</h3>
+        <input id="name" class="text_box" type="text" autofocus required>
+
+        <h3>Business ID</h3>
+        <input id="id" class="text_box" type="text" autofocus required>
+
+        <h3 class="password">Password</h3>
+        <input id="pass" class="text_box" type="text" autofocus required>
+
+        <h3 class="password">Confirm password</h3>
+        <input id="confirmpass" class="text_box" type="text" autofocus required>
+
+        <h3 class="password">Max capacity</h3>
+        <input id="capacity" class="text_box" type="number" min="1" autofocus required>
+
+        <button onclick="submit()">Sign up</button>
+    </div>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
+    <script type="text/javascript">
+    	var socket = io();
+
+    	function submit() {
+    		var registration = {
+    			name: document.getElementById("name").value.toString(),
+    			id: document.getElementById("id").value.toString(),
+    			email: document.getElementById("email").value.toString(),
+    			pass: document.getElementById("pass").value.toString(),
+    			number: document.getElementById("number").value.toString(),
+    			capacity: document.getElementById("capacity").value.toString(),
+    			health: document.getElementById("health").value.toString(),
+    		};
+    		if(document.getElementById("pass").value.toString() == document.getElementById("confirmpass").value.toString()) {
+    			socket.emit("registration", registration);
+    			alert("You have succesfully registered! Please login now.");
+    			window.location.replace("login.html");
+    		} else {
+    			alert("The password and confirmation password do not match. Please try again.");
+    		}
+    	}
+    </script>
+</body>
+
+</html>
