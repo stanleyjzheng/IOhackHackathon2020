@@ -17,9 +17,9 @@ pip install pathto/populartimes-master
 
 If you would like to use the live demonstration, first get a [Google Maps API key](https://developers.google.com/places/web-service/get-api-key). Next, paste it into `APIKey` in `onlinetest.py`. Finally, verify you have enabled Places API under Google's API Marketplace. 
 
-onlinetest.py calls Google Places API in order to search locations, which is a paid service with a limited trial. 
+`onlinetest.py` calls Google Places API in order to search locations, which is a paid service with a limited trial. 
 
-offlinetest.py uses existing cached data from Places API to conserve API keys for demonstrations. The data from the initial `onlinetest.py` run that was cached is available to see in `onlinecache.txt`. No user input is needed, it simply sorts the information provided. 
+`offlinetest.py` uses existing cached data from Places API to conserve API keys for demonstrations. The data from the initial `onlinetest.py` run that was cached is available to see in `onlinecache.txt`. No user input is needed, it simply sorts the information provided. 
 
 The places that the offline version currently returns are taken from a set list called `onlinecache.txt`. However, `onlinetest.py` is a drop in replacement for `offlinetest.py` and will use the Google API, and will therefore take an input of a store and return stores that have the lowest current popularity within a 5km radius, provided you have an API key.
 
@@ -37,8 +37,9 @@ From a user provided store and radius, PopQ! searches the area for similar store
  The purpose of our queueing is to let users stay outside while keeping their place in line. The queue system takes a user login using an email and a password, and if the user does not have an account, they are redirected to a signup page. 
 
 ## Built With
-* [node.js](https://nodejs.org/en/)
-* [populartimes](https://github.com/m-wrzr/populartimes)
+* [node.js](https://nodejs.org/en/) - The runtime environment used
+* [populartimes](https://github.com/m-wrzr/populartimes) - Used to find popular times data
+* [qrcodejs](Davidshimjs.github.io/qrcodejs/) - QR code generator
 
 ## Authors
 * **Richard Zhang**
