@@ -26,8 +26,12 @@ app.get('/p/:id', function(req, res) {
 	var iid = info[0].toString();
 	var sid = info[1].toString();
 
-	if (id=="e") {
-		const newshopperpy = spawn('python', ['add_to_current_shoppers.py', sid, iid])
+	if (type=="e") {
+		const newshopperpy = spawn('python', ['add_to_current_shoppers.py', sid, iid]);
+		newshopperpy.on('close', function() {
+			console.log("added new shopper");
+		});
+		
 	}
 
 

@@ -57,7 +57,10 @@ function eraseCookie(name) {
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 
         <script type="text/javascript">
-            new QRCode(document.getElementById("qrcode"), "http://localhost:5000/");
+            var link = "http://localhost:5000/p/e";
+            var code = getCookie("userid").toString() + "-" + getCookie("chosenstore");
+            var final = link + code;
+            new QRCode(document.getElementById("qrcode"), final);
         </script>
 
     <script type="text/javascript">
