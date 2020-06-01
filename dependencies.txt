@@ -1,0 +1,9 @@
+The following are required dependencies: 
+
+
+python 3 or newer
+node.js
+populartimes
+
+
+in order to run populartimes, you must cd into the populartimes-master file and run pip install pathtofile/populartimes-master
