@@ -3,10 +3,12 @@
 
   PopQ!, or popular times and queue, is an all-in-one webpage designed for facilitating social distancing by directing users to less busy stores as well as providing a remote queue system so that users may stay in their cars while waiting for busy services.
 
-**If you have access to our pitch video, please go to dependencies.txt, read it, and download the dependencies. Then, read how to run below**
+**If you have access to our pitch video, please go to dependencies.txt, read it, and download the dependencies. Then, read how to run below and Queue**
 
 # How to run
   Please note that without access to the Google API, it is not possible to update the suggested places. The places the offline version currently returns are taken from a set list called onlinecache.txt. However, onlinetest.py is a dropin replacement for offlinetest.py and will use the Google API, and will therefore take an input of a store and return stores that have the lowest current popularity within a 5km radius, provided you have an API key. 
+  
+  To run the entire project as whole, cd to the directory IOhackHackathon2020 (or wherever you cloned it), and run node app.js. 
 # pt (populartimes)
   The goal of this program is to give users advice in order to avoid crowds at stores and public places. 
   From a user provided store and radius, PopQ! searches the area for similar stores that have the lowest live volume using Google's    popular times API. 
