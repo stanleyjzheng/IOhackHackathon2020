@@ -26,4 +26,7 @@
  
  # Queue
  The purpose of our queueing is to let users stay outside while keeping their place in line. The queue system takes a user login using an email and a password, and if the user does not have an account, they are redirected to a signup page. 
+<<<<<<< HEAD
+>>>>>>> parent of 03afba2... readme
+=======
 >>>>>>> parent of 03afba2... readme
