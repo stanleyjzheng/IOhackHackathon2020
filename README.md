@@ -41,9 +41,8 @@ From a user provided store and radius, PopQ! searches the area for similar store
 * [populartimes](https://github.com/m-wrzr/populartimes)
 
 ## Authors
-* **Team BLACKPINK**
-    * Richard Zhang
-    * Michael Xu
-    * Benjamin Ng
-    * Stanley Zheng
-    * Andy Zhou
+* **Richard Zhang**
+* **Michael Xu**
+* **Benjamin Ng**
+* **Stanley Zheng**
+* **Andy Zhou**
