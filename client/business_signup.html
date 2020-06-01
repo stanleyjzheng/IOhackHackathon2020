@@ -38,11 +38,8 @@
     		var registration = {
     			name: document.getElementById("name").value.toString(),
     			id: document.getElementById("id").value.toString(),
-    			email: document.getElementById("email").value.toString(),
     			pass: document.getElementById("pass").value.toString(),
-    			number: document.getElementById("number").value.toString(),
     			capacity: document.getElementById("capacity").value.toString(),
-    			health: document.getElementById("health").value.toString(),
     		};
     		if(document.getElementById("pass").value.toString() == document.getElementById("confirmpass").value.toString()) {
     			socket.emit("registration", registration);
