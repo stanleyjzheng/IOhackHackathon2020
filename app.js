@@ -26,10 +26,21 @@ app.get('/p/:id', function(req, res) {
 	var iid = info[0].toString();
 	var sid = info[1].toString();
 
+	const isvalidpy = spawn('python', ['is_valid_shopper.py', sid, iid]);
+	var validity = false;
+	isvalidpy.stdout.on('data', function(data) {
+		if(data.String())
+	});
+
 	if (type=="e") {
+
+
+
 		const newshopperpy = spawn('python', ['add_to_current_shoppers.py', sid, iid]);
 		newshopperpy.on('close', function() {
 			console.log("added new shopper");
+			var data = {id: iid, store: sid};
+			io.sockets.emit("enterstore", data);
 		});
 		
 	}
