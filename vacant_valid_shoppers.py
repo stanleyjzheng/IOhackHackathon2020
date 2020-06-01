@@ -16,9 +16,11 @@ def vacant_valid_shoppers(store):
     # retrieve store capacity
     file = open(f"companies.csv", "r")
     companies = [line.strip().split() for line in file.readlines()]
+    file.close()
     for company in companies:
         if company[0] == store:
             capacity = int(company[3])
+
             break
 
     if capacity - num_shoppers - num_valid_shoppers >= 0:
