@@ -10,10 +10,10 @@
 
 <body>
     <div>
-        <h2>Sign in</h2>
+        <h2>Business Sign in</h2>
 
-        <h3>Email</h3>
-        <input id="email" class="email_box" type="email" autofocus>
+        <h3>Username</h3>
+        <input id="username" class="username" type="text" autofocus> <!--changed id-->
         <h3 class="password">Password</h3>
 
         <input id="pass" class="password_box" type="password" autofocus>
@@ -55,7 +55,7 @@ function eraseCookie(name) {
         var socket = io();
 
         function signIn() {
-            var user = document.getElementById("email").value;
+            var user = document.getElementById("username").value;
             var pass = document.getElementById("pass").value
             var data = {
                 user: user,
