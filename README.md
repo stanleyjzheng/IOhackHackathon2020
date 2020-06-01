@@ -15,4 +15,6 @@
   If you would like to use the live demonstration, first get a Google Maps API key https://developers.google.com/places/web-service/get-api-key. Next, paste it into `APIKey` in `onlinetest.py`. Finally, verify you have enabled Places API under Google's API Marketplace. 
   
   As of May 31, 2020, Google gives a free trial and will not charge the provided credit card without email verification once your free trial has concluded. 
+ ## populartimes.get_id(...)
+ Retreives information for a given place id and adds populartimes, wait
  
