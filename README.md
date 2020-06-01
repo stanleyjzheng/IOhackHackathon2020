@@ -1,6 +1,5 @@
 ![PopQLogo](https://img.techpowerup.org/200601/popq.png)
 
-# PopQ!
 PopQ!, or popular times and queue, is an all-in-one webpage designed for facilitating social distancing by directing users to less busy stores as well as providing a remote queue system so that users may stay in their cars while waiting for busy services.
 
 ## Getting Started
