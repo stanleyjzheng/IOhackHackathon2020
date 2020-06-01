@@ -7,3 +7,5 @@ populartimes
 
 
 in order to run populartimes, you must cd into the populartimes-master file and run pip install pathtofile/populartimes-master
+
+Other required dependencies are socket.io and express, but they are already packaged with the github repo so you do not need to install them. 
