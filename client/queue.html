@@ -70,6 +70,12 @@ function eraseCookie(name) {
             socket.emit("leavequeue", {id:getCookie("userid"), store: getCookie("chosenstore")});
             window.location.replace("index.html");
         }
+
+        socket.on("enterstore", function(data) {
+            if(data.id.toString()== getCookie("userid")&&data.store.toString()==getCookie("chosenstore")) {
+                window.location.replace("inStore.html");
+            }
+        });
         
     </script>
 
