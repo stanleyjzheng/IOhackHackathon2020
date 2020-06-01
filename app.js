@@ -26,7 +26,9 @@ app.get('/p/:id', function(req, res) {
 	var iid = info[0].toString();
 	var sid = info[1].toString();
 
-	const isvalidpy = spawn('python', ['is_valid_shopper.py', sid, iid]);
+
+	if(type=="e") {
+		const isvalidpy = spawn('python', ['is_valid_shopper.py', sid, iid]);
 	var validity = false;
 	isvalidpy.stdout.on('data', function(data) {
 		if(data.toString()=="True") {
@@ -57,7 +59,18 @@ app.get('/p/:id', function(req, res) {
 				res.sendFile(__dirname + '/client/missing.html');
 			}
 		}
-	});
+		});
+	} else if (type=="l") {
+		const leavepy = spawn('python', ['remove_from_current_shoppers', sid, iid]);
+		leavepy.on('close', function() {
+			console.log("Shopper left");
+			var data = {id: iid, store: sid};
+			io.sockets.emit("leavestore", data);
+			res.sendFile(__dirname + '/client/leave.html');
+		});
+	} else {
+		res.sendFile(__dirname + '/client/missing.html');
+	}
 	
 
 
@@ -125,6 +138,8 @@ io.sockets.on('connection', function(socket){
 		reorderpy.on('close', function() {
 			console.log("Succesfully reordered");
 		});
+
+
 	});
 	socket.on("leavequeue", function(data) {
 		var id = data.id.toString();

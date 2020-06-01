@@ -56,7 +56,7 @@
     		if(document.getElementById("pass").value.toString() == document.getElementById("confirmpass").value.toString()) {
     			socket.emit("registration", registration);
     			alert("You have succesfully registered! Please login now.");
-    			window.location.replace("login.html");
+    			window.location.replace("signin.html");
     		} else {
     			alert("The password and confirmation password do not match. Please try again.");
     		}
