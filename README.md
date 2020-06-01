@@ -30,7 +30,7 @@ As of May 31, 2020, Google gives a free trial and will not charge the provided c
   
   To run the entire project as whole, cd to the directory IOhackHackathon2020 (or wherever you cloned it), and run node app.js. Then, to view the website, go to "localhost:5000" on a web browser (preferably google chrome).
 
-  Please see our video for a much more detailed explanation of how to run the code.
+  Please [see our video](https://drive.google.com/file/d/1T_EUTfL4Vxr-2CFCptyMnkComfYJYBSz/view?usp=sharing) for a much more detailed explanation of how to run the code.
 
 ## Features
 
@@ -53,8 +53,8 @@ From a user provided store and radius, PopQ! searches the area for similar store
 * [qrcodejs](Davidshimjs.github.io/qrcodejs/) - QR code generator
 
 ## Authors
-* **Richard Zhang**
-* **Michael Xu**
-* **Benjamin Ng**
-* **Stanley Zheng**
-* **Andy Zhou**
+* **Richard Zhang** - [Rougg](https://github.com/Rougg)
+* **Michael Xu** - [themicklepickle](https://github.com/themicklepickle)
+* **Benjamin Ng** - [bennnyhin](https://github.com/bennnyhin)
+* **Stanley Zheng** - [Stanley-Zheng](https://github.com/Stanley-Zheng)
+* **Andy Zhou** - [VexusDoom](https://github.com/VexusDoom)
