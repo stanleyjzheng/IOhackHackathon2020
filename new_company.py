@@ -1,11 +1,11 @@
 import sys
 
 
-def new_company(company_id, name, wait_time, capacity):
+def new_company(company_id, name, password, wait_time, capacity):
 
     # create new company
     file = open("companies.csv", "a")
-    file.write(f"{company_id},{name},{wait_time},{capacity}\n")
+    file.write(f"{company_id},{name},{password},{wait_time},{capacity}\n")
     file.close()
 
     # create queue csv
@@ -21,4 +21,4 @@ def new_company(company_id, name, wait_time, capacity):
     file.close()
 
 
-print(new_company(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]))
+print(new_company(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5]))
