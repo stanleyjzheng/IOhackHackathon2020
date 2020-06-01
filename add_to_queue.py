@@ -6,7 +6,7 @@ def add_to_queue(store, user):
 
     # write new user to queue
     file = open(f"{store}_queue.csv", "a")
-    file.write(f"{priority_score},{user},{time.time()}\n")
+    file.write(f"{user},{time.time()}\n")
     file.close()
 
 
