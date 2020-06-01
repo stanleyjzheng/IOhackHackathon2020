@@ -73,6 +73,9 @@ io.sockets.on('connection', function(socket){
 		var id = data.id.toString();
 		var store = data.store.toString();
 		const enterqueuepy = spawn('python', ['add_to_queue.py', store, id]);
+		enterqueuepy.on('close', function() {
+			console.log("Succesfully added to queue at store " + store);
+		});
 	});
 	
 });

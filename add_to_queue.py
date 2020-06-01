@@ -1,4 +1,5 @@
 import sys
+import time
 
 
 def add_to_queue(store, user):
