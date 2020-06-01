@@ -24,15 +24,15 @@ app.get('/p/:id', function(req, res) {
 	}
 	var info = individual.split("-");
 	var iid = info[0].toString();
+	if(info[1]) {
 	var sid = info[1].toString();
-
+}
 
 	if(type=="e") {
 		const isvalidpy = spawn('python', ['is_valid_shopper.py', sid, iid]);
 	var validity = false;
 	isvalidpy.stdout.on('data', function(data) {
 		if(data.toString()=="True") {
-			if(type=="e") {
 					res.sendFile(__dirname + '/client/enter.html');
 					const newshopperpy = spawn('python', ['add_to_current_shoppers.py', sid, iid]);
 					newshopperpy.on('close', function() {
@@ -74,9 +74,6 @@ app.get('/p/:id', function(req, res) {
 			
 			}); 
 
-			} else {
-				res.sendFile(__dirname + '/client/missing.html');
-			}
 
 
 		} else{
