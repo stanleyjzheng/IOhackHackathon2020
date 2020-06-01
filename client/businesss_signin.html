@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PopQ! - Business Sign In</title>
+    <link rel="stylesheet" href="business_signin.css">
+</head>
+
+<body>
+    <div>
+        <h2>Sign in</h2>
+
+        <h3>Email</h3>
+        <input id="email" class="email_box" type="email" autofocus>
+        <h3 class="password">Password</h3>
+
+        <input id="pass" class="password_box" type="password" autofocus>
+        <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+
+
+
+        <button onclick="signIn()">Next</button>
+    </div>
+
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
+    <script type="text/javascript">
+        function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+function eraseCookie(name) {
+    document.cookie = name+'=; Max-Age=-99999999;';
+}
+    </script>
+
+    <script type="text/javascript">
+        var socket = io();
+
+        function signIn() {
+            var user = document.getElementById("email").value;
+            var pass = document.getElementById("pass").value
+            var data = {
+                user: user,
+                pass: pass,
+            };
+            socket.emit("login", data);
+        }
+
+        socket.on("loggingin", function(data) {
+            if(data.success) {
+                setCookie('userid', data.id.toString());
+                window.location.replace("queue.html");
+            } else{
+                console.log("Wrong");
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>

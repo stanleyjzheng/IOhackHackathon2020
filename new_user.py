@@ -16,7 +16,7 @@ def new_user(first_name, last_name, email, password, phone_number, age, health_c
 
     # create new user
     file = open("accounts.csv", "a")
-    file.write(f"{user_id},{first_name},{last_name},{email},{password},{phone_number},{age},{health_conditions}\n")
+    file.write(f"{user_id},{first_name},{last_name},{email},{password},{phone_number},{age},{health_conditions},0\n")
     file.close()
 
 
