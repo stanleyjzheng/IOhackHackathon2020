@@ -15,7 +15,7 @@ pip install pathto/populartimes-master
 ```
 ### Get API Key (optional)
 
-If you would like to use the live demonstration, first get a Google Maps API key https://developers.google.com/places/web-service/get-api-key. Next, paste it into `APIKey` in `onlinetest.py`. Finally, verify you have enabled Places API under Google's API Marketplace. 
+If you would like to use the live demonstration, first get a [Google Maps API key](https://developers.google.com/places/web-service/get-api-key). Next, paste it into `APIKey` in `onlinetest.py`. Finally, verify you have enabled Places API under Google's API Marketplace. 
 
 onlinetest.py calls Google Places API in order to search locations, which is a paid service with a limited trial. 
 
