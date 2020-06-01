@@ -16,7 +16,7 @@
                 <div id="qrcode"></div>
             </div>
             <div class="reminder">
-                <h1>You can enter the store!</h1>
+                <h1 id="changing">Please wait to enter the store.</h1>
                     <h1 class="time_left">Time left: 5 minutes</h1>
             </div>
             <div class="button_container">
@@ -74,6 +74,15 @@ function eraseCookie(name) {
         socket.on("enterstore", function(data) {
             if(data.id.toString()== getCookie("userid")&&data.store.toString()==getCookie("chosenstore")) {
                 window.location.replace("inStore.html");
+            }
+        });
+
+        socket.on("getin", function(data) {
+            console.log(data.id.toString());
+                console.log(data.store.toString());
+            if(data.id.toString()== getCookie("userid")&&data.store.toString()==getCookie("chosenstore")) {
+
+                document.getElementById("changing").innerHTML = "You can now enter the store!";
             }
         });
         

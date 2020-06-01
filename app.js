@@ -44,6 +44,33 @@ app.get('/p/:id', function(req, res) {
 					removevalidpy.on('close', function() {
 						console.log("Valid shopper removed");
 					});
+					var store = sid;
+
+
+
+					const vacantpy = spawn('python', ['vacant_valid_shoppers.py', store]);
+		vacantpy.stdout.on('data', function(data) {
+			if (data.toString() == "True") {
+				const nextpy = spawn('python', ['next_in_queue.py', store]);
+				nextpy.stdout.on('data', function(data) {
+					var kk = data.toString();
+					const getinpy = spawn('python', ['add_to_valid_shoppers.py', store, kk]);
+					getinpy.on('close', function() {
+						const removequeuepy = spawn('python', ['remove_from_queue.py', store, kk]);
+						removequeuepy.on('close', function() {
+							console.log("succesfully moved from queue to valid shoppers");
+							var package = {id: kk, store: store};
+							io.sockets.emit("getin", package);
+						});
+					});
+				});
+			}
+		});
+
+
+
+
+
 			
 			}); 
 
@@ -139,6 +166,32 @@ io.sockets.on('connection', function(socket){
 			console.log("Succesfully reordered");
 		});
 
+		
+
+		const vacantpy = spawn('python', ['vacant_valid_shoppers.py', store]);
+		console.log("here");
+		vacantpy.stdout.on('data', function(data) {
+			console.log(data.toString());
+			if (data.toString() == "True") {
+				console.log("here1");
+				
+				const nextpy = spawn('python', ['next_in_queue.py', store]);
+				nextpy.stdout.on('data', function(data) {
+					console.log("here2");
+					var kk = data.toString();
+					const getinpy = spawn('python', ['add_to_valid_shoppers.py', store, kk]);
+					getinpy.on('close', function() {
+						const removequeuepy = spawn('python', ['remove_from_queue.py', store, kk]);
+						removequeuepy.on('close', function() {
+							console.log("succesfully moved from queue to valid shoppers");
+							var data = {id: kk, store: store};
+							io.sockets.emit("getin", data);
+							console.log(data);
+						});
+					});
+				});
+			}
+		});
 
 	});
 	socket.on("leavequeue", function(data) {

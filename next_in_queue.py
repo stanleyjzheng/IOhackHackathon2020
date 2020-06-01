@@ -9,4 +9,4 @@ def next_in_queue(store):
     return first_line[1]
 
 
-print(next_in_queue(sys.argv[1]))
+print(next_in_queue(sys.argv[1]), end="")
