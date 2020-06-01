@@ -13,7 +13,7 @@
             <div class="rectangle1"></div>
             <div class="time_remaining_text"></div>
             <div class="image">
-                <img src="frame.png" alt="Your QR code">
+                <div id="qrcode"></div>
             </div>
             <div class="button_container">
                 <button class="button">Cancel</button>
@@ -26,5 +26,19 @@
             <div class="rectangle3"></div>
         </div>
     </div>
+
+    <script type="text/javascript" src="qrcode.js"></script>
+
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
+    <div id="qrcode"></div>
+        <script type="text/javascript">
+            new QRCode(document.getElementById("qrcode"), "http://localhost:5000/");
+        </script>
+
+    <script type="text/javascript">
+        
+    </script>
+
 </body>
 </html>
