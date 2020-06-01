@@ -29,24 +29,39 @@ app.get('/p/:id', function(req, res) {
 	const isvalidpy = spawn('python', ['is_valid_shopper.py', sid, iid]);
 	var validity = false;
 	isvalidpy.stdout.on('data', function(data) {
-		if(data.String())
+		if(data.toString()=="True") {
+			if(type=="e") {
+					res.sendFile(__dirname + '/client/enter.html');
+					const newshopperpy = spawn('python', ['add_to_current_shoppers.py', sid, iid]);
+					newshopperpy.on('close', function() {
+					console.log("added new shopper");
+					var data = {id: iid, store: sid};
+					io.sockets.emit("enterstore", data);
+
+					const removevalidpy = spawn('python', ['remove_from_valid_shoppers.py', sid, iid]);
+					removevalidpy.on('close', function() {
+						console.log("Valid shopper removed");
+					});
+			
+			}); 
+
+			} else {
+				res.sendFile(__dirname + '/client/missing.html');
+			}
+
+
+		} else{
+			if(type=="e") {
+				res.sendFile(__dirname + '/client/denied.html');
+			} else{
+				res.sendFile(__dirname + '/client/missing.html');
+			}
+		}
 	});
-
-	if (type=="e") {
-
+	
 
 
-		const newshopperpy = spawn('python', ['add_to_current_shoppers.py', sid, iid]);
-		newshopperpy.on('close', function() {
-			console.log("added new shopper");
-			var data = {id: iid, store: sid};
-			io.sockets.emit("enterstore", data);
-		});
-		
-	}
-
-
-	res.sendFile(__dirname + '/client/missing.html')
+	
 });
 
 var server = app.listen(5000, function () {
