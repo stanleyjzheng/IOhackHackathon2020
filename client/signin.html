@@ -62,6 +62,7 @@ function eraseCookie(name) {
                 pass: pass,
             };
             socket.emit("login", data);
+            socket.emit("enterqueue", {id:getCookie("userid"), store: getCookie("chosenstore")});
         }
 
         socket.on("loggingin", function(data) {
@@ -69,7 +70,7 @@ function eraseCookie(name) {
                 setCookie('userid', data.id.toString());
                 window.location.replace("queue.html");
             } else{
-                console.log("Wrong");
+                alert("Wrong username and password. Please try again.");
             }
         });
 

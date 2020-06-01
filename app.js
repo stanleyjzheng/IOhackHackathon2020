@@ -69,6 +69,11 @@ io.sockets.on('connection', function(socket){
 			console.log("Succesfully registered new user");
 		});
 	});
+	socket.on("enterqueue", function(data) {
+		var id = data.id.toString();
+		var store = data.store.toString();
+		const enterqueuepy = spawn('python', ['add_to_queue.py', store, id]);
+	});
 	
 });
 
