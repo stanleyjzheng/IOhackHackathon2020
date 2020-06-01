@@ -15,8 +15,23 @@ app.get('/', function(req, res) {
 	res.sendFile(__dirname + '/client/index.html');
 });
 
-app.get('/testindex', function(req, res) {
+app.get('/p/:id', function(req, res) {
+	var id = req.params.id;
+	var type = id[0];
+	var individual = "";
+	for(var i = 1; i < id.length; i++) {
+		individual += id[i].toString();
+	}
+	var info = individual.split("-");
+	var iid = info[0].toString();
+	var sid = info[1].toString();
 
+	if (id=="e") {
+		const newshopperpy = spawn('python', ['add_to_current_shoppers.py', sid, iid])
+	}
+
+
+	res.sendFile(__dirname + '/client/missing.html')
 });
 
 var server = app.listen(5000, function () {
@@ -76,7 +91,18 @@ io.sockets.on('connection', function(socket){
 		enterqueuepy.on('close', function() {
 			console.log("Succesfully added to queue at store " + store);
 		});
+		const reorderpy = spawn('python', ['sort_queue.py', store]);
+		reorderpy.on('close', function() {
+			console.log("Succesfully reordered");
+		});
+	});
+	socket.on("leavequeue", function(data) {
+		var id = data.id.toString();
+		var store = data.store.toString();
+		const leavequeuepy = spawn('python', ['remove_from_queue.py', store, id]);
+		leavequeuepy.on('close', function() {
+			console.log("Succesfully added to queue at store " + store);
+		});
 	});
 	
 });
-
