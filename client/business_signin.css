@@ -6,7 +6,7 @@ body {
     font-family:Arial, Helvetica, sans-serif;
     color: black;
     /* background-image: linear-gradient(to bottom right, #f9cb9cff, white); */
-    background-image: radial-gradient(#f9cb9cff, white)
+    background-image: radial-gradient(#bbff96, white)
 }
 div {
     background-color: white;
@@ -42,7 +42,7 @@ h3 {
     padding-left: 70px;
     font-size: 20px
 }
-.email_box {
+.username {
     margin-top: -10px;
     margin-left: 70px;
     width: 440px;
@@ -71,7 +71,7 @@ p {
     font-size: 20px;
 }
 a:link, a:visited, a:active {
-    color: orange;
+    color: green;
     text-decoration: none;
 }
 a:hover {
