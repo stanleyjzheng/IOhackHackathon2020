@@ -3,7 +3,9 @@
 
   PopQ!, or popular times and queue, is an all-in-one webpage designed for facilitating social distancing by directing users to less busy stores as well as providing a remote queue system so that users may stay in their cars while waiting for busy services.
 
-**If you have access to our pitch video, please go to dependencies.txt, read it, and download the dependencies.**
+**If you have access to our pitch video, please go to dependencies.txt, read it, and download the dependencies. Then, read how to run below**
+
+# How to run
 
 # pt (populartimes)
   The goal of this program is to give users advice in order to avoid crowds at stores and public places. 
