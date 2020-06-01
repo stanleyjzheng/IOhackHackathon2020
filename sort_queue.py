@@ -24,7 +24,7 @@ def sort_queue(store):
 
     # sort queue
     def last_element(element):
-        return int(element[-1])
+        return int(float(element[-1]))
     queue.sort(key=last_element, reverse=True)
 
     # write sorted queue to csv file
@@ -34,4 +34,4 @@ def sort_queue(store):
     file.close()
 
 
-print(add_to_queue(sys.argv[1]))
+print(sort_queue(sys.argv[1]))
