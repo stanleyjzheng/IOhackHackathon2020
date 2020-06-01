@@ -15,8 +15,8 @@ body {
 
 .right_box{
     background-color: white;
-    width: 45%;
-    height:65%;
+    width: 600px;
+    height: 630px;
     box-shadow: -1px 1px 2px 1px grey;
     border-radius: 2px;
     float: right;
@@ -77,7 +77,6 @@ h2 {
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-
 }
 .button {
     background-color: rgb(209, 106, 106);
