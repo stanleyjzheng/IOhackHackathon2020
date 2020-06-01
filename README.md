@@ -5,7 +5,7 @@ PopQ!, or popular times and queue, is an all-in-one webpage designed for facilit
 
 ### Install dependencies
 * [node.js](https://nodejs.org/en/)
-* [populartimes]()
+* [populartimes](https://github.com/m-wrzr/populartimes)
 
 Using the links above, install node.js and populartimes to your computer.
 
