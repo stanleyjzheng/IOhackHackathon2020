@@ -9,17 +9,21 @@
 </head>
 
 <body>
-    <div>
-        <h2>Business Sign in</h2>
+    <div class="main">
+        <div>
+            <div class="title"><h2>Business Sign in</h2></div>
+            <div class="logo"><img class="logo" src="https://cdn.discordapp.com/attachments/716355523703865394/716871883743821844/PopQ_Original.png" alt="PopQ! Logo"></div>
+        </div>
 
-        <h3>Username</h3>
-        <input id="username" class="username" type="text" autofocus> <!--changed id-->
+        <h3 class="email">Username</h3>
+        <input id="username" class="username" type="text" autofocus>
+
         <h3 class="password">Password</h3>
-
         <input id="pass" class="password_box" type="password" autofocus>
+
         <p>Don't have an account? <a href="signup.html">Sign up</a></p>
 
-
+        <p id="wrong" class="wrong_text">Incorrect email or password. Please try again.</p>
 
         <button onclick="signIn()">Next</button>
     </div>

@@ -20,7 +20,6 @@ def vacant_valid_shoppers(store):
     for company in companies:
         if company[0] == store:
             capacity = int(company[3])
-
             break
 
     if capacity - num_shoppers - num_valid_shoppers > 0:

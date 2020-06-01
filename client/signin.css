@@ -8,10 +8,10 @@ body {
     /* background-image: linear-gradient(to bottom right, #f9cb9cff, white); */
     background-image: radial-gradient(#f9cb9cff, white)
 }
-div {
+.main {
     background-color: white;
     width: 600px;
-    height: 450px;
+    height: 500px;
     margin: 0;
     position: absolute;
     top: 50%;
@@ -37,8 +37,8 @@ h2 {
     padding-left: 70px;
     font-size: 40px
 }
-h3 {
-    padding-top: 0px;
+.email {
+    padding-top: 100px;
     padding-left: 70px;
     font-size: 20px
 }
@@ -53,7 +53,9 @@ h3 {
 
     /* box-shadow: -1px 1px 2px 1px grey; */
 }
-.password{
+.password {
+    padding-top: 0px;
+    padding-left: 70px;
     font-size:20px;
 }
 .password_box{
@@ -76,4 +78,17 @@ a:link, a:visited, a:active {
 }
 a:hover {
     text-decoration: underline;
+}
+.wrong_text {
+    color: white
+}
+.title {
+    float:left;
+}
+.logo {
+    width: 75px;
+    height: auto;
+    float: right;
+    margin-top: 15px;
+    margin-right: 40px
 }
