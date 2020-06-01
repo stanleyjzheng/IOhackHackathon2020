@@ -13,31 +13,55 @@
         <h2>Create new account</h2>
 
         <h3>First name</h3>
-        <input class="text_box" type="text" autofocus required>
+        <input id="first" class="text_box" type="text" autofocus required>
 
         <h3>Last name</h3>
-        <input class="text_box" type="text" autofocus required>
+        <input id="last" class="text_box" type="text" autofocus required>
 
         <h3>Email address (username)</h3>
-        <input class="email_box" type="email" autofocus required>
+        <input id="email" class="email_box" type="email" autofocus required>
 
         <h3 class="password">Password</h3>
-        <input class="text_box" type="text" autofocus required>
+        <input id="pass" class="text_box" type="text" autofocus required>
 
         <h3 class="password">Confirm password</h3>
-        <input class="text_box" type="text" autofocus required>
+        <input id="confirmpass" class="text_box" type="text" autofocus required>
 
         <h3 class="password">Phone number</h3>
-        <input class="text_box" type="number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="(xxx) xxx-xxxx" required>
+        <input id="number" class="text_box" type="number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="(xxx) xxx-xxxx" required>
 
         <h3 class="password">Age</h3>
-        <input class="text_box" type="number" min="16" max="120"autofocus required>
+        <input id="age" class="text_box" type="number" min="16" max="120"autofocus required>
 
         <h3 class="password">Health conditions (if any)</h3>
-        <input class="health_conditions" type="text" autofocus>
+        <input id="health" class="health_conditions" type="text" autofocus>
 
-        <button onclick="document.location = '.html'">Sign up</button>
+        <button onclick="submit()">Sign up</button>
     </div>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
+    <script type="text/javascript">
+    	var socket = io();
+
+    	function submit() {
+    		var registration = {
+    			first: document.getElementById("first").value.toString(),
+    			last: document.getElementById("last").value.toString(),
+    			email: document.getElementById("email").value.toString(),
+    			pass: document.getElementById("pass").value.toString(),
+    			number: document.getElementById("number").value.toString(),
+    			age: document.getElementById("age").value.toString(),
+    			health: document.getElementById("health").value.toString(),
+    		};
+    		if(document.getElementById("pass").value.toString() == document.getElementById("confirmpass").value.toString()) {
+    			socket.emit("registration", registration);
+    			alert("You have succesfully registered! Please login now.");
+    			window.location.replace("login.html");
+    		} else {
+    			alert("The password and confirmation password do not match. Please try again.");
+    		}
+    	}
+    </script>
 </body>
 
 </html>

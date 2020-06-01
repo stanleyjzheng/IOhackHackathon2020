@@ -63,6 +63,12 @@ io.sockets.on('connection', function(socket){
 		});
 
 	})
+	socket.on("registration", function(data) {
+		const registerpy = spawn('python', ['new_user.py', data.first, data.last, data.email, data.pass, data.number, data.age, data.health]);
+		registerpy.on('close', function() {
+			console.log("Succesfully registered new user");
+		});
+	});
 	
 });
 
