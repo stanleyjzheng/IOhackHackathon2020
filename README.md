@@ -59,3 +59,8 @@ From a user provided store and radius, PopQ! searches the area for similar store
 * **Benjamin Ng** - [bennnyhin](https://github.com/bennnyhin)
 * **Stanley Zheng** - [Stanley-Zheng](https://github.com/Stanley-Zheng)
 * **Andy Zhou** - [VexusDoom](https://github.com/VexusDoom)
+
+### Future Possibilities
+Switch to a web crawler instead of Google populartimes instead of using the Google API to incur zero costs.
+
+One example is [here](https://github.com/drobnikj/crawler-google-places)
